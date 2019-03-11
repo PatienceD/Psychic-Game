@@ -42,17 +42,6 @@
             display();
         }
 
-        function display() {
-            var winsP = document.getElementById("wins");
-            var losesP = document.getElementById("loses");
-            var guessLeft = document.getElementById("guessLeft");
-            var letterGuessed = document.getElementById("guessed");
-            winsP.innerHTML = wins;
-            losesP.innerHTML = loses;
-            guessLeft.innerHTML = guessesLeft;
-            letterGuessed.innerHTML = guessedLetters.join(',');
-        }
-
         function win() {
             wins++;
             resetGame();
@@ -66,6 +55,17 @@
         function fail(letter) {
             guessesLeft--;
             guessedLetters.push(letter);
+        }
+
+        function display() {
+            var winsP = document.getElementById("wins");
+            var losesP = document.getElementById("loses");
+            var guessLeft = document.getElementById("guessLeft");
+            var letterGuessed = document.getElementById("guessed");
+            winsP.innerHTML = wins;
+            losesP.innerHTML = loses;
+            guessLeft.innerHTML = guessesLeft;
+            letterGuessed.innerHTML = guessedLetters.join(',');
         }
 
         function resetGame() {
