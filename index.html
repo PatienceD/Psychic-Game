@@ -4,78 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <title>The Psychic Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
 </head>
 
 <body>
-    <div>
-        <h1>The Psychic Game</h1>
-        <p>Guess what letter I'm thinking of</p>
-        <p>Wins:</p>
-        <p id="wins"></p>
-        <p>Loses:</p>
-        <p id="loses"></p>
-        <p>Guess left:</p>
-        <p id="guessLeft"></p>
-        <p>Your guesses so far:</p>
-        <p id="guessed"></p>
+    <div class="jumbotron">
+        <h1 class="display-4">The Psychic Game</h1>
+        <p class="lead">For this game, you're supposed to guess what letter the computer is thinking!</p>
+        <p class="lead">Type out any letter on your keyboard to see if it matches with what the computer is thinking!
+            Don't worry, we'll keep track of the score for you</p>
+        <p class="lead">Good luck!</p>
+    </div>
+    <div class="container">
+        <h5>Can You Guess What Letter I'm Thinking of?</h5>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-6">
+                        <p class="card-text">Wins:</p>
+                        <p id="wins"></p>
+
+                        <p class="card-text">Loses:</p>
+                        <p id="loses"></p>
+                    </div>
+
+                    <div class="col-6">
+                        <p class="card-text">Guess left:</p>
+                        <p id="guessLeft"></p>
+
+                        <p class="card-text">Your Guesses so far:</p>
+                        <p id="guessed"></p>
+                    </div>
+                    
+
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <script type="text/javascript">
-        var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-        var wins = 0;
-        var loses = 0;
-        var guessesLeft, guessedLetters, letterToGuess;
-
-        resetGame();
-        display();
-
-        document.onkeyup = function (event) {
-            var guess = event.key;
-            if (guess === letterToGuess) {
-                win();
-            } else if (guessesLeft - 1 === 0) {
-                lost();
-            } else {
-                fail(guess);
-            }
-
-            display();
-        }
-
-        function win() {
-            wins++;
-            resetGame();
-        }
-
-        function lost() {
-            loses++;
-            resetGame();
-        }
-
-        function fail(letter) {
-            guessesLeft--;
-            guessedLetters.push(letter);
-        }
-
-        function display() {
-            var winsP = document.getElementById("wins");
-            var losesP = document.getElementById("loses");
-            var guessLeft = document.getElementById("guessLeft");
-            var letterGuessed = document.getElementById("guessed");
-            winsP.innerHTML = wins;
-            losesP.innerHTML = loses;
-            guessLeft.innerHTML = guessesLeft;
-            letterGuessed.innerHTML = guessedLetters.join(',');
-        }
-
-        function resetGame() {
-            guessesLeft = 12;
-            guessedLetters = [];
-            letterToGuess = letters[Math.floor(Math.random() * letters.length)];
-            console.log("Letter to guess: " + letterToGuess);
-        }  
-    </script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

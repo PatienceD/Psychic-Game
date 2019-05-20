@@ -1,0 +1,25 @@
+.card-img-overlay {
+    margin-bottom: 5px;
+}
+
+img {
+    max-height: 8000px;
+}
+
+.card-text {
+    font-family: serif;
+    font-size: 18px;
+}
+
+h5 {
+    font-family: serif;
+    font-size: 25px;
+}
+
+.card-footer {
+    text-align: center;
+}
+
+.card {
+    border: dashed 1px lightgrey;
+}
